@@ -14,6 +14,9 @@ export default function App() {
   const Login = () => {
     navigation.navigate('Login')
   };
+  const entrar = () => {
+    navigation.navigate('Match')
+  }
 
   return (
     <LinearGradient colors={['#400E57', '#004DBF']} style={styles.container}>
@@ -43,7 +46,7 @@ export default function App() {
           />
        </View>
        <View style={styles.caixa2}>
-          <TouchableOpacity style={styles.button}>Entrar</TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={entrar}>Entrar</TouchableOpacity>
           <TouchableOpacity style={styles.link} onPress={Login}>Já tem uma conta?</TouchableOpacity>
        </View>
         <StatusBar style="auto" />

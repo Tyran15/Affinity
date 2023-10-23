@@ -1,8 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
+  const navigation = useNavigation();
+  const entrar = () => {
+    navigation.navigate('Match')
+  }
   return (
   <LinearGradient colors={['#400E57', '#004DBF']} style={styles.container}>      
     <View style={styles.caixa1}>
@@ -12,7 +17,7 @@ export default function Login() {
       </View>
 
       <View style={styles.caixa2}>
-        <TouchableOpacity style={styles.button}>Entrar</TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={entrar}>Entrar</TouchableOpacity>
         <TouchableOpacity style={styles.link}>Esqueceu a senha?</TouchableOpacity>
       </View>
       
