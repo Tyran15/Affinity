@@ -36,6 +36,8 @@ export default function App() {
         <TextInput 
           style={styles.input}
            placeholder='Senha'
+           secureTextEntry={true}
+            passwordRules
            value={senha}
            onChangeText={(text) => setSenha(text)}
           />
