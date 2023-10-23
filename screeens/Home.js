@@ -3,6 +3,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 export default function Home() {
+  
+  const realizarLogin = () => {
+    navigation.navigate('Login');
+  }
+  const realizarCadastro = () => {
+    navigation.navigate('Sinup')
+  }
+
+
   return (
       <LinearGradient colors={['#400E57', '#004DBF']} style={styles.container}>
         <View style={styles.caixa1}>
@@ -11,8 +20,12 @@ export default function Home() {
         </View>
         <View style={styles.caixa2}>
           <Text style={styles.text}>Ao tentar entrar você concorda com nossos Termos de uso e privacidade</Text>
-          <TouchableOpacity style={styles.button}>Entrar</TouchableOpacity>
-          <TouchableOpacity style={styles.button}>Cadastrar</TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => realizarLogin}>
+            Entrar
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={()=> realizarCadastro}>
+            Cadastrar
+          </TouchableOpacity>
         </View>
         <StatusBar style="auto" />
       </LinearGradient>
