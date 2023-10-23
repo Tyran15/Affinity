@@ -1,16 +1,18 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
-  
-  const realizarLogin = () => {
-    navigation.navigate('Login');
-  }
-  const realizarCadastro = () => {
-    navigation.navigate('Sinup')
-  }
+  const navigation = useNavigation();
 
+  const goToLogin = () => {
+    navigation.navigate('Login')
+  };
+
+  const goToSingup = () => {
+    navigation.navigate('Singup')
+  };
 
   return (
       <LinearGradient colors={['#400E57', '#004DBF']} style={styles.container}>
@@ -20,12 +22,8 @@ export default function Home() {
         </View>
         <View style={styles.caixa2}>
           <Text style={styles.text}>Ao tentar entrar você concorda com nossos Termos de uso e privacidade</Text>
-          <TouchableOpacity style={styles.button} onPress={() => realizarLogin}>
-            Entrar
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={()=> realizarCadastro}>
-            Cadastrar
-          </TouchableOpacity>
+          <TouchableOpacity onPress={goToLogin} style={styles.button}>Entrar</TouchableOpacity>
+          <TouchableOpacity onPress={goToSingup} style={styles.button}>Cadastrar</TouchableOpacity>
         </View>
         <StatusBar style="auto" />
       </LinearGradient>

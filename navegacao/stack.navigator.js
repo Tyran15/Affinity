@@ -11,7 +11,6 @@ export default function StackRoutes() {
     return(
         <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
             <Stack.Screen name="Home" component={Home} />
-            
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Singup" component={Singup} />
         </Stack.Navigator>
