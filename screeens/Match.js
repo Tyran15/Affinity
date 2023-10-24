@@ -1,21 +1,37 @@
-import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
-export default function Home() {
+export default function Match() {
   return (
-      <LinearGradient colors={['#fff']} style={styles.container}>
-        <View style={styles.caixa1}>
-          <Image source={require('../assets/Imagens/Logo.png')} style={styles.imagem}/>
-          <Text style={styles.text}>O seu parceiro está a um clique de Distância</Text>
+      <View style={styles.container}>
+        <View style={styles.logo}>
+          <Image source={require('../assets/Imagens/Logo.png')} style={styles.imgLogo}/>
         </View>
-        <View style={styles.caixa2}>
-          <Text style={styles.text}>Ao tentar entrar você concorda com nossos Termos de uso e privacidade</Text>
-          <TouchableOpacity style={styles.button}><Text style={styles.placeholder}>Entrar</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button}><Text style={styles.placeholder}>Cadastrar</Text></TouchableOpacity>
+        <View style={styles.pessoas}>
+            <Image source={require('../assets/Imagens/Ana Castela.png')} style={styles.imgPessoas}/>
+        </View>
+        <View style={styles.descPessoa}>
+            <Text style={styles.textDesc}>Ana Castela, 19 anos</Text>
+        </View>
+        <View style={styles.botaos1}>
+            <TouchableOpacity>
+                <Image source={require('../assets/Imagens/botao-voltar.png')} style={styles.botoes}/>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Image source={require('../assets/Imagens/localizacao.png')} style={styles.botoes}/>
+            </TouchableOpacity>
+        </View>
+        <View style={styles.botaos2}>
+            <TouchableOpacity>
+                <Image source={require('../assets/Imagens/coracao.png')} style={styles.botoes}/>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Image source={require('../assets/Imagens/excluir-botao.png')} style={styles.botoes}/>
+            </TouchableOpacity>
         </View>
         <StatusBar style="auto" />
-      </LinearGradient>
+      </View>
   );
 }
 
@@ -23,35 +39,67 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  imagem: {
-    height: '12rem',
-    width: '100%',
+
+  botaos1:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft:60,
+    paddingRight:60,
   },
-  text: {
-    color: 'white',
-    textAlign: 'center',
-    width: '20rem',
-    fontSize: 16,
+
+  botaos2:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft:110,
+    paddingRight:110,
   },
-  caixa1: {
-    marginBottom: '50%',
+
+  botoes:{
+    width: 70,
+    height: 70,
   },
-  caixa2: {
-    alignItems: 'center',
+
+  textDesc:{
+    color:'black',
+    fontWeight:'bold',
+    fontSize:20,
   },
-  button: {
-    borderWidth: 2,
-    padding: 5,
-    width: 180,
-    marginTop: 30,
-    fontSize: 24,
-    textAlign: 'center',
-    color: 'white',
-    borderColor: 'white',
-    borderRadius: 35,
+
+  descPessoa:{
+    width:'100%',
+    height:'5%',
+    justifyContent:'center',
+    opacity:0.5,
+    paddingLeft:40,
+    paddingRight:30,
+  },
+
+  imgLogo: {
+    height: 90,
+    width: 90,
+  },
+
+  logo: {
+    margin:10,
+    width:'auto',
+    height:'auto',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+  },
+
+  pessoas:{
+    width:'100%',
+    height:'50%',
+    paddingLeft:30,
+    paddingRight:30,
+    borderRadius:10,
+  },
+
+  imgPessoas:{
+    height:'100%',
+    width:'100%',
+    borderRadius:10,
   },
   placeholder: {
     color: 'white',
