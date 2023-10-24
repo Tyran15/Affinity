@@ -26,6 +26,7 @@ export default function App() {
           style={styles.input}
            placeholder='Nome'
            value={nome}
+           placeholderTextColor='white'
            onChangeText={(text) => setNome(text)}
           />
 
@@ -33,6 +34,7 @@ export default function App() {
           style={styles.input}
            placeholder='E-mail'
            value={email}
+           placeholderTextColor='white'
            onChangeText={(text) => setEmail(text)}
           />
 
@@ -42,12 +44,13 @@ export default function App() {
            secureTextEntry={true}
             passwordRules
            value={senha}
+           placeholderTextColor='white'
            onChangeText={(text) => setSenha(text)}
           />
        </View>
        <View style={styles.caixa2}>
-          <TouchableOpacity style={styles.button} onPress={entrar}>Entrar</TouchableOpacity>
-          <TouchableOpacity style={styles.link} onPress={Login}>Já tem uma conta?</TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={entrar}><Text style={styles.placeholder}>Entrar</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.link} onPress={Login}><Text style={styles.placeholder}>Já tem uma conta?</Text></TouchableOpacity>
        </View>
         <StatusBar style="auto" />
     </LinearGradient>
@@ -98,5 +101,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
     textDecorationLine: 'underline',  
+  },
+  placeholder: {
+    color: 'white',
+    fontSize: 24,
+    textAlign: "center",
   },
 });

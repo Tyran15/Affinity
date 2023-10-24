@@ -11,8 +11,8 @@ export default function Home() {
         </View>
         <View style={styles.caixa2}>
           <Text style={styles.text}>Ao tentar entrar você concorda com nossos Termos de uso e privacidade</Text>
-          <TouchableOpacity style={styles.button}>Entrar</TouchableOpacity>
-          <TouchableOpacity style={styles.button}>Cadastrar</TouchableOpacity>
+          <TouchableOpacity style={styles.button}><Text style={styles.placeholder}>Entrar</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button}><Text style={styles.placeholder}>Cadastrar</Text></TouchableOpacity>
         </View>
         <StatusBar style="auto" />
       </LinearGradient>
@@ -52,5 +52,10 @@ const styles = StyleSheet.create({
     color: 'white',
     borderColor: 'white',
     borderRadius: 35,
+  },
+  placeholder: {
+    color: 'white',
+    fontSize: 24,
+    textAlign: "center",
   },
 });

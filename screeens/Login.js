@@ -12,13 +12,13 @@ export default function Login() {
   <LinearGradient colors={['#400E57', '#004DBF']} style={styles.container}>      
     <View style={styles.caixa1}>
         <Text style={styles.tittle}>Login</Text>
-        <TextInput style={styles.input} placeholder='E-mail' />
-        <TextInput style={styles.input} placeholder='Senha' />
+        <TextInput style={styles.input} placeholderTextColor='white' placeholder='E-mail' />
+        <TextInput style={styles.input} placeholderTextColor='white' placeholder='Senha' />
       </View>
 
       <View style={styles.caixa2}>
-        <TouchableOpacity style={styles.button} onPress={entrar}>Entrar</TouchableOpacity>
-        <TouchableOpacity style={styles.link}>Esqueceu a senha?</TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={entrar}><Text style={styles.placeholder}>Entrar</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.link}><Text style={styles.placeholder}>Esqueceu a senha?</Text></TouchableOpacity>
       </View>
       
       <StatusBar style="auto" />
@@ -72,5 +72,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
     textDecorationLine: 'underline',  
+  },
+  placeholder: {
+    color: 'white',
+    fontSize: 24,
+    textAlign: "center",
   },
 });
