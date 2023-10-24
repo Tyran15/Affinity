@@ -9,7 +9,7 @@ export default function Match() {
           <Image source={require('../assets/Imagens/Logo.png')} style={styles.imgLogo}/>
         </View>
         <View style={styles.pessoas}>
-            <Image source={require('../assets/Imagens/Ana Castela.png')} style={styles.imgPessoas}/>
+            <Image source={require('../assets/Imagens/Ana-Castela.png')} style={styles.imgPessoas}/>
         </View>
         <View style={styles.descPessoa}>
             <Text style={styles.textDesc}>Ana Castela, 19 anos</Text>
@@ -90,15 +90,16 @@ const styles = StyleSheet.create({
 
   pessoas:{
     width:'100%',
-    height:'50%',
+    height:380,
     paddingLeft:30,
     paddingRight:30,
     borderRadius:10,
+    alignItems: 'center',
   },
 
   imgPessoas:{
-    height:'100%',
-    width:'100%',
+    height:380,
+    width:350,
     borderRadius:10,
   },
   placeholder: {
