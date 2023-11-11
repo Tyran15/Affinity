@@ -1,22 +1,66 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
 export default function Match() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const data = [
+    {
+      nome: 'Ana Castela',
+      idade: 19,
+      interesses: 'Tocar violão, compor músicas, pintar e desenhar',
+      image: require('../assets/Imagens/Ana-Castela.jpeg'),
+      distancia:'1,6',
+    },
+    {
+      nome: 'Clodoaldo',
+      idade: 16,
+      interesses: 'Ser a criatura de poder maximo na etec',
+      image: require('../assets/Imagens/Clodoaldo.jpeg'),
+      distancia:'0',
+    },
+    {
+      nome: 'Seu Madruga',
+      idade: 30,
+      interesses: 'Nossa',
+      image: require('../assets/Imagens/madruga.jpg'),
+      distancia:'10',
+    },
+    {
+      nome: 'Elon Musk',
+      idade: 54,
+      interesses: 'This is Elon Musk',
+      image: require('../assets/Imagens/elon-musk.jpg'),
+      distancia:'4,8',
+    },
+  ];
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+  };
+
+  const currentData = data[currentIndex];
   return (
       <View style={styles.container}>
         <View style={styles.logo}>
           <Image source={require('../assets/Imagens/Logo.png')} style={styles.imgLogo}/>
+          <Image source={require('../assets/Imagens/vip.png')} style={styles.imgVip}/>
         </View>
         <View style={styles.pessoas}>
-            <Image source={require('../assets/Imagens/Ana-Castela.jpeg')} style={styles.imgPessoas}/>
+            <Image source={currentData.image} style={styles.imgPessoas}/>
         </View>
         <View style={styles.descPessoa}>
-            <Text style={styles.textDesc}>Ana Castela, 19 anos</Text>
-            <Text style={styles.textDescEnd}>Interesses: Tocar violão, compor músicas, pintar e desenhar</Text>
+            <Text style={styles.textDesc}>{`${currentData.nome}, ${currentData.idade} anos`}</Text>
+            <Text style={styles.textDescEnd}>{`Interesses: ${currentData.interesses}`}</Text>
         </View>
         <View style={styles.botaos1}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handlePrev}>
                 <Image source={require('../assets/Imagens/botao-voltar.png')} style={styles.botoes}/>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -25,14 +69,14 @@ export default function Match() {
             <TouchableOpacity>
                 <Image source={require('../assets/Imagens/excluir-botao.png')} style={styles.botoes}/>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleNext}>
                 <Image source={require('../assets/Imagens/botao-proximo.png')} style={styles.botoes}/>
             </TouchableOpacity>
         </View>
         <View style={styles.containerLoc}>
           <View style={styles.locText}>
             <Image source={require('../assets/Imagens/localizacao.png')} style={styles.imgLoc}/>
-            <Text style={styles.textLoc}>1,6 km de distância</Text>
+            <Text style={styles.textLoc}>{`${currentData.distancia} km de distância`}</Text>
           </View>
         </View>
         <View style={styles.containerNav}>
@@ -42,9 +86,9 @@ export default function Match() {
           <TouchableOpacity>
             <Image source={require('../assets/Imagens/chat.png')} style={styles.imgNav}/>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={require('../assets/Imagens/match.png')} style={styles.imgNav}/>
-          </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={require('../assets/Imagens/match.png')} style={styles.imgNav}/>
+            </TouchableOpacity>
           <TouchableOpacity>
             <Image source={require('../assets/Imagens/sobre.png')} style={styles.imgNav}/>
           </TouchableOpacity>
@@ -63,16 +107,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f3f5',
   },
 
+  imgVip: {
+    marginTop:20,
+    width:110,
+    height:40,
+  },
+
   imgNav:{
-    width:50,
-    height:50,
+    width:40,
+    height:40,
   },
 
   containerNav:{
-    marginTop:40,
-    paddingBottom:8,
+    marginTop:30,
+    paddingBottom:12,
     paddingTop:8,
-    backgroundColor:'#040e2c',
+    backgroundColor:'#640525',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingLeft:15,
@@ -83,54 +133,53 @@ const styles = StyleSheet.create({
     display:'flex',
     alignItems:'center',
     justifyContent:'center',
-    marginTop:6,
+    marginTop:9,
   },
 
   imgLoc:{
-    height:40,
-    width:40,
+    height:30,
+    width:30,
   },
 
   locText:{
     paddingBottom:6,
     paddingTop:6,
-    paddingLeft:6,
-    paddingRight:8,
+    paddingLeft:12,
+    paddingRight:12,
     flexDirection:'row',
     justifyContent:'space-between',
-    backgroundColor:'#040e2c',
-    borderColor:'#d0152e',
+    backgroundColor:'#f9f3f5',
+    borderColor:'#640525',
     borderWidth:6,
     borderRadius:30,
     width:250,
   },
 
   textLoc:{
-    color:'white',
-    fontSize:21,
-    marginTop:3,
+    color:'#640525',
+    fontSize:20,
+    marginTop:1,
   },
 
   botaos1:{
     paddingTop:10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft:40,
-    paddingRight:40,
+    paddingLeft:50,
+    paddingRight:50,
   },
 
   botoes:{
-    width: 70,
-    height: 70,
+    width: 65,
+    height: 65,
   },
 
   textDesc:{
     paddingLeft:8,
+    paddingRight:20,
     paddingTop:6,
     color:'white',
     fontSize:18,
-    backgroundColor:'#640525',
-
   },
 
   textDescEnd:{
@@ -138,16 +187,16 @@ const styles = StyleSheet.create({
     paddingBottom:6,
     color:'white',
     fontSize:18,
-    backgroundColor:'#640525',
-    borderBottomEndRadius:10,
-    borderBottomStartRadius:10,
   },
 
   descPessoa:{
-    width:'100%',
+    flex:1,
     justifyContent:'center',
-    paddingLeft:20,
+    backgroundColor:'#640525',
     paddingRight:20,
+    marginHorizontal: 20,
+    borderBottomEndRadius:10,
+    borderBottomStartRadius:10,
   },
 
   imgLogo: {
@@ -156,28 +205,29 @@ const styles = StyleSheet.create({
   },
 
   logo: {
+    marginTop:20,
     margin:10,
     width:'auto',
     height:'auto',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   pessoas:{
     width:'100%',
-    height:400,
+    height:450,
     paddingLeft:20,
     paddingRight:20,
-    borderTopEndRadius:10,
-    borderTopStartRadius:10,
+    borderTopLeftRadius:10,
+    borderTopRightRadius:10,
     alignItems: 'center',
   },
 
   imgPessoas:{
     height:'100%',
     width:'100%',
-    borderTopEndRadius:10,
-    borderTopStartRadius:10,
+    borderTopLeftRadius:10,
+    borderTopRightRadius:10,
   },
 
   placeholder: {
