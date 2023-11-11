@@ -4,6 +4,10 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
 export default function Match() {
+  const navigation = useNavigation();
+  const perfil = () => {
+    navigation.navigate('Perfil')
+  }
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const data = [
@@ -92,7 +96,7 @@ export default function Match() {
           <TouchableOpacity>
             <Image source={require('../assets/Imagens/sobre.png')} style={styles.imgNav}/>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={perfil}>
             <Image source={require('../assets/Imagens/perfil.png')} style={styles.imgNav}/>
           </TouchableOpacity>
         </View>
