@@ -7,7 +7,7 @@ import Felipe from "../assets/Imagens/Fundadores/Felipe.jpg";
 export default function Info() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Desenvolvedores do Affinty</Text>
+      <Text style={styles.title}>Desenvolvedores do Affinity</Text>
       <View style={styles.viewBase}>
         <View style={styles.containerDev}>
           <Image
