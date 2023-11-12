@@ -6,6 +6,7 @@ import Login from "../screeens/Login";
 import Singup from "../screeens/Singup";
 import Match from "../screeens/Match";
 import Perfil from "../screeens/Perfil";
+import TabRoutes from "./tab.navigator";
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ export default function StackRoutes() {
             <Stack.Screen name="Singup" component={Singup} />
             <Stack.Screen name="Match" component={Match} />
             <Stack.Screen name="Perfil" component={Perfil} />
+            <Stack.Screen name="TabRoutes" component={TabRoutes} />
         </Stack.Navigator>
     );
 }

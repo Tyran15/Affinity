@@ -83,24 +83,8 @@ export default function Match() {
             <Text style={styles.textLoc}>{`${currentData.distancia} km de distância`}</Text>
           </View>
         </View>
-        <View style={styles.containerNav}>
-          <TouchableOpacity>
-            <Image source={require('../assets/Imagens/home.png')} style={styles.imgNav}/>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={require('../assets/Imagens/chat.png')} style={styles.imgNav}/>
-          </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={require('../assets/Imagens/match.png')} style={styles.imgNav}/>
-            </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={require('../assets/Imagens/sobre.png')} style={styles.imgNav}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={perfil}>
-            <Image source={require('../assets/Imagens/perfil.png')} style={styles.imgNav}/>
-          </TouchableOpacity>
-        </View>
         <StatusBar style="auto" />
+        
       </View>
   );
 }

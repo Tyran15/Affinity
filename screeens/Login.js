@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function Login() {
   const navigation = useNavigation();
   const entrar = () => {
-    navigation.navigate('Match')
+    navigation.navigate('TabRoutes')
   }
   return (
   <LinearGradient colors={['#400E57', '#004DBF']} style={styles.container}>      
