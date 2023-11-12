@@ -28,14 +28,14 @@ export default function Match() {
     {
       nome: 'Seu Madruga',
       idade: 30,
-      interesses: 'Nossa',
+      interesses: 'Não pagar aluguel por 14 meses.',
       image: require('../assets/Imagens/madruga.jpg'),
       distancia:'10',
     },
     {
       nome: 'Elon Musk',
       idade: 54,
-      interesses: 'This is Elon Musk',
+      interesses: 'Colonizar a terra oca',
       image: require('../assets/Imagens/elon-musk.jpg'),
       distancia:'4,8',
     },
