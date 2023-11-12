@@ -4,6 +4,7 @@ import { Feather } from 'react-native-vector-icons'; // Importe o ícone correto
 import StackRoutes from './stack.navigator';
 import Perfil from '../screeens/Perfil';
 import Match from '../screeens/Match';
+import Info from '../screeens/Info';
 
 const Tab = createBottomTabNavigator();
 
@@ -53,7 +54,7 @@ export default function  () {
       />
       <Tab.Screen
         name="Info"
-        component={StackRoutes}
+        component={Info}
         options={{
           tabBarLabel: 'Info.',
           tabBarIcon: ({ color }) => (
