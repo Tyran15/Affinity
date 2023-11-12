@@ -123,10 +123,10 @@ const styles = StyleSheet.create({
   },
 
   containerNav:{
-    marginTop:30,
+    marginTop:70,
     paddingBottom:12,
     paddingTop:8,
-    backgroundColor:'#640525',
+    backgroundColor:'#E8E8E8',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingLeft:15,
@@ -141,15 +141,15 @@ const styles = StyleSheet.create({
   },
 
   imgLoc:{
-    height:30,
-    width:30,
+    height:25,
+    width:25,
   },
 
   locText:{
     paddingBottom:6,
     paddingTop:6,
-    paddingLeft:12,
-    paddingRight:12,
+    paddingLeft:20,
+    paddingRight:20,
     flexDirection:'row',
     justifyContent:'space-between',
     backgroundColor:'#f9f3f5',
@@ -161,8 +161,7 @@ const styles = StyleSheet.create({
 
   textLoc:{
     color:'#640525',
-    fontSize:20,
-    marginTop:1,
+    fontSize:18,
   },
 
   botaos1:{
@@ -174,8 +173,8 @@ const styles = StyleSheet.create({
   },
 
   botoes:{
-    width: 65,
-    height: 65,
+    width: 60,
+    height: 60,
   },
 
   textDesc:{
@@ -184,6 +183,7 @@ const styles = StyleSheet.create({
     paddingTop:6,
     color:'white',
     fontSize:18,
+    fontWeight:'bold',
   },
 
   textDescEnd:{
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
     paddingBottom:6,
     color:'white',
     fontSize:18,
+    fontWeight:'bold',
   },
 
   descPessoa:{
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
 
   pessoas:{
     width:'100%',
-    height:450,
+    height:440,
     paddingLeft:20,
     paddingRight:20,
     borderTopLeftRadius:10,
