@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Feather } from 'react-native-vector-icons'; // Importe o ícone correto
 
 const Chat = () => {
-  const [messages, setMessages] = React.useState([]);
-  const [newMessage, setNewMessage] = React.useState('');
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [textWidth, setTextWidth] = useState(200); // Valor inicial ajustado
 
   const handleSendMessage = () => {
     if (newMessage.trim() === '') return;
@@ -20,14 +21,19 @@ const Chat = () => {
     <View style={styles.container}>
       <View style={styles.containerTitulo}>
         <Image source={require('../assets/Imagens/Logo.png')} style={styles.imgLogo}/>
-        <Text style={styles.tituloChat}>Chat</Text>
       </View>
       <FlatList
         style={styles.conteinerFlatList}
         data={messages}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.messageContainer}>
+          <View
+            onLayout={(event) => {
+              const { width } = event.nativeEvent.layout;
+              setTextWidth(Math.max(width, textWidth));
+            }}
+            style={[styles.messageContainer, { width: textWidth }]}
+          >
             <Text style={styles.novaMessage}>{`${item.text}`}</Text>
           </View>
         )}
@@ -35,7 +41,7 @@ const Chat = () => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Mandar menasagem"
+          placeholder="Mandar mensagem"
           value={newMessage}
           onChangeText={(text) => setNewMessage(text)}
         />
@@ -53,52 +59,45 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#fff',
   },
-  conteinerTitulo:{
-    marginTop:20,
-    margin:10,
-    width:'auto',
-    height:'auto',
+  containerTitulo: {
+    marginTop: 20,
+    margin: 10,
+    width: 'auto',
+    height: 'auto',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  tituloChat:{
+  tituloChat: {
     textAlign: 'center',
-    text: 'bold',
+    fontWeight: 'bold',
     fontSize: 20,
-  },
-  imgVip: {
-    marginTop:20,
-    width:110,
-    height:40,
   },
   imgLogo: {
     height: 90,
     width: 90,
   },
 
-
-
-  conteinerFlatList:{
-    paddingLeft:30,
+  conteinerFlatList: {
+    paddingLeft: 30,
   },
   messageContainer: {
     color: 'white',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 0,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 0,
     backgroundColor: '#640525',
-    borderColor:'#640525',
-    padding: 5,
+    borderColor: '#640525',
+    paddingVertical: 10, // Ajustei o padding vertical
+    paddingHorizontal: 10, // Ajustei o padding horizontal
     borderWidth: 2,
     marginBottom: 10,
-    width: 'auto',
+    marginTop: 10,
   },
-  novaMessage:{
-    textAlign: 'right',
+  novaMessage: {
+    textAlign: 'left',
     color: 'white',
     fontSize: 17,
-    width: 'auto',
   },
 
   inputContainer: {
@@ -118,10 +117,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#007BFF',
     borderRadius: 5,
     padding: 10,
-  },
-  sendButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
   },
 });
 
