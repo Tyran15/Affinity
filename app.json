@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Tinder",
+    "name": "Affinity",
     "slug": "Tinder",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/Imagens/Logo.png",
     "userInterfaceStyle": "light",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tyran_master15.Tinder"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8edee9b9-6144-4c98-87a7-2047161e270e"
+      }
     }
   }
 }
