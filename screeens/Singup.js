@@ -15,7 +15,7 @@ export default function App() {
     navigation.navigate('Login')
   };
   const entrar = () => {
-    navigation.navigate('Match')
+    navigation.navigate('TabRoutes')
   }
 
   return (
