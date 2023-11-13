@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Feather } from 'react-native-vector-icons'; // Importe o ícone correto
 
 const Chat = () => {
   const [messages, setMessages] = React.useState([]);
@@ -34,12 +35,12 @@ const Chat = () => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Type a message"
+          placeholder="Mandar menasagem"
           value={newMessage}
           onChangeText={(text) => setNewMessage(text)}
         />
         <TouchableOpacity onPress={handleSendMessage} style={styles.sendButton}>
-          <Text style={styles.sendButtonText}>Send</Text>
+          <Feather name="arrow-right" color={'#FFF'} />
         </TouchableOpacity>
       </View>
     </View>

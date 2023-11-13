@@ -4,7 +4,18 @@ import { StatusBar } from "expo-status-bar";
 export default function HomeUser() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
+      <View style={styles.deshboard}>
+        <Text style={styles.title}>Home</Text>
+      </View>
+      <View style={styles.deshboard}>
+        <Text style={styles.title}>Home</Text>
+      </View>
+      <View style={styles.deshboard}>
+        <Text style={styles.title}>Home</Text>
+      </View>
+      <View style={styles.deshboard}>
+        <Text style={styles.title}>Home</Text>
+      </View>
     </View>
   );
 }
@@ -15,8 +26,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    display: 'flex',
   },
   title: {
+    color: 'red',
     fontWeight: 'bold',
-  }
+  },
+  deshboard:{
+    width: 150,
+    height: 175,
+    borderColor: 'red',
+    borderWidth: 3,
+  },  
 });
