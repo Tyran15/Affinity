@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Feather } from 'react-native-vector-icons'; // Importe o ícone correto
 
 const Chat = () => {
