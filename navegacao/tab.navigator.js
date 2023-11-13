@@ -5,6 +5,8 @@ import StackRoutes from './stack.navigator';
 import Perfil from '../screeens/Perfil';
 import Match from '../screeens/Match';
 import Info from '../screeens/Info';
+import Chat from '../screeens/Chat';
+import HomeUser from '../screeens/HomeUser';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,13 +19,13 @@ export default function  () {
         tabStyle: {
           height: 50,
         },
-        activeTintColor: 'blue',
+        activeTintColor: 'red',
         inactiveTintColor: 'gray',
       }}
     >
       <Tab.Screen
         name="Home"
-        component={StackRoutes}
+        component={HomeUser}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
@@ -33,7 +35,7 @@ export default function  () {
       />
       <Tab.Screen
         name="Chat"
-        component={StackRoutes}
+        component={Chat}
         options={{
           tabBarLabel: 'Chat',
           tabBarIcon: ({ color }) => (

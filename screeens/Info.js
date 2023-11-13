@@ -1,9 +1,6 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-import Carlos from "../assets/Imagens/Fundadores/Carlos.jpg";
-import Felipe from "../assets/Imagens/Fundadores/Felipe.jpg";
-
 export default function Info() {
   return (
     <View style={styles.container}>

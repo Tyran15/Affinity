@@ -7,6 +7,7 @@ import Singup from "../screeens/Singup";
 import Match from "../screeens/Match";
 import Perfil from "../screeens/Perfil";
 import TabRoutes from "./tab.navigator";
+import HomeUser from "../screeens/HomeUser";
 
 const Stack = createStackNavigator();
 
