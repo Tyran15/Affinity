@@ -47,6 +47,7 @@ export default function App() {
            placeholderTextColor='white'
            onChangeText={(text) => setSenha(text)}
           />
+     
        </View>
        <View style={styles.caixa2}>
           <TouchableOpacity style={styles.button} onPress={entrar}><Text style={styles.placeholder}>Entrar</Text></TouchableOpacity>

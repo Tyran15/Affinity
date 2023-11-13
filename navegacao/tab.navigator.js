@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 export default function  () {
   return (
     <Tab.Navigator
-      initialRouteName='Match'
+      initialRouteName='HomeUser'
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         tabStyle: {
