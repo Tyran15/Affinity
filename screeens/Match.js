@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import { Feather } from 'react-native-vector-icons';
 
 export default function Match() {
   const navigation = useNavigation();
@@ -57,34 +59,36 @@ export default function Match() {
           <Image source={require('../assets/Imagens/vip.png')} style={styles.imgVip}/>
         </View>
         <View style={styles.pessoas}>
-            <Image source={currentData.image} style={styles.imgPessoas}/>
-        </View>
-        <View style={styles.descPessoa}>
+          <Image source={currentData.image} style={styles.imgPessoas} />
+          <LinearGradient colors={["transparent", "#000000"]} style={styles.descPessoa}>
             <Text style={styles.textDesc}>{`${currentData.nome}, ${currentData.idade} anos`}</Text>
             <Text style={styles.textDescEnd}>{`Interesses: ${currentData.interesses}`}</Text>
+          </LinearGradient>
         </View>
         <View style={styles.botaos1}>
-            <TouchableOpacity onPress={handlePrev}>
-                <Image source={require('../assets/Imagens/botao-voltar.png')} style={styles.botoes}/>
+            <TouchableOpacity style={styles.buttonWithShadow} onPress={handlePrev}>
+                <Feather name="arrow-left" color="#EF3243" size={45}/>
             </TouchableOpacity>
-            <TouchableOpacity>
-                <Image source={require('../assets/Imagens/coracao.png')} style={styles.botoes}/>
+            <TouchableOpacity style={styles.buttonWithShadow} onPress={handlePrev}>
+              <Feather name="heart" color="#910909" size={45}/>
             </TouchableOpacity>
-            <TouchableOpacity>
-                <Image source={require('../assets/Imagens/excluir-botao.png')} style={styles.botoes}/>
+            <TouchableOpacity style={styles.buttonWithShadow}>
+              <Feather name="star" color="#2321B7" size={45}/>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleNext}>
-                <Image source={require('../assets/Imagens/botao-proximo.png')} style={styles.botoes}/>
+            <TouchableOpacity style={styles.buttonWithShadow} onPress={handlePrev}>
+              <Feather name="x" color="#910909" size={45}/>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonWithShadow} onPress={handleNext}>
+              <Feather name="arrow-right" color="#EF3243" size={45}/>
             </TouchableOpacity>
         </View>
         <View style={styles.containerLoc}>
           <View style={styles.locText}>
-            <Image source={require('../assets/Imagens/localizacao.png')} style={styles.imgLoc}/>
+            <Feather name="map-pin" color="#520000" size={23}/>
             <Text style={styles.textLoc}>{`${currentData.distancia} km de distância`}</Text>
           </View>
         </View>
         <StatusBar style="auto" />
-        
       </View>
   );
 }
@@ -92,29 +96,23 @@ export default function Match() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f3f5',
+    backgroundColor: 'white',
+  },
+
+  buttonWithShadow: {
+    backgroundColor: 'white', 
+    padding:5,
+    borderRadius: 55,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.5,
   },
 
   imgVip: {
     marginTop:20,
-    width:110,
-    height:40,
-  },
-
-  imgNav:{
-    width:40,
-    height:40,
-  },
-
-  containerNav:{
-    marginTop:70,
-    paddingBottom:12,
-    paddingTop:8,
-    backgroundColor:'#E8E8E8',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingLeft:15,
-    paddingRight:15,
+    width:90,
+    height:30,
   },
 
   containerLoc:{
@@ -130,21 +128,21 @@ const styles = StyleSheet.create({
   },
 
   locText:{
+    marginTop:10,
     paddingBottom:6,
     paddingTop:6,
-    paddingLeft:20,
-    paddingRight:20,
+    paddingLeft:30,
+    paddingRight:30,
     flexDirection:'row',
     justifyContent:'space-between',
-    backgroundColor:'#f9f3f5',
-    borderColor:'#640525',
-    borderWidth:4,
+    borderColor:'#520000',
+    borderWidth:2,
     borderRadius:30,
     width:250,
   },
 
   textLoc:{
-    color:'#640525',
+    color:'#520000',
     fontSize:19,
     marginBottom:3,
   },
@@ -153,8 +151,8 @@ const styles = StyleSheet.create({
     paddingTop:10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft:70,
-    paddingRight:70,
+    paddingLeft:50,
+    paddingRight:50,
   },
 
   botoes:{
@@ -167,7 +165,7 @@ const styles = StyleSheet.create({
     paddingRight:20,
     paddingTop:6,
     color:'white',
-    fontSize:15,
+    fontSize:22,
     fontWeight:'bold',
   },
 
@@ -180,17 +178,19 @@ const styles = StyleSheet.create({
   },
 
   descPessoa:{
-    justifyContent:'center',
-    backgroundColor:'#640525',
-    paddingRight:20,
-    marginHorizontal: 30,
-    borderBottomEndRadius:10,
-    borderBottomStartRadius:10,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    marginHorizontal:30,
   },
 
   imgLogo: {
-    height: 90,
-    width: 90,
+    height: 70,
+    width: 70,
   },
 
   logo: {
@@ -203,20 +203,19 @@ const styles = StyleSheet.create({
   },
 
   pessoas:{
-    width:'100%',
-    height:430,
-    paddingLeft:30,
-    paddingRight:30,
-    borderTopLeftRadius:10,
-    borderTopRightRadius:10,
+    width: '100%',
+    height: 510,
+    paddingLeft: 30,
+    paddingRight: 30,
+    borderRadius:10,
     alignItems: 'center',
+    position: 'relative',
   },
 
   imgPessoas:{
     height:'100%',
     width:'100%',
-    borderTopLeftRadius:10,
-    borderTopRightRadius:10,
+    borderRadius:10,
   },
 
   placeholder: {
