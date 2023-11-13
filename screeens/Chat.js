@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,12 +7,27 @@ import { createStackNavigator } from '@react-navigation/stack';
 const ChatScreen = ({ navigation }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+=======
+import React from 'react';
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+
+const Chat = () => {
+  const [messages, setMessages] = React.useState([]);
+  const [newMessage, setNewMessage] = React.useState('');
+>>>>>>> 57ab70a5a7b974f2aa7f469cf1240ff224d13ec1
 
   const handleSendMessage = () => {
     if (newMessage.trim() === '') return;
 
+<<<<<<< HEAD
     const message = { text: newMessage, user: 'user1' };
     setMessages([...messages, message]);
+=======
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { id: messages.length + 1, text: newMessage, user: 'user' },
+    ]);
+>>>>>>> 57ab70a5a7b974f2aa7f469cf1240ff224d13ec1
     setNewMessage('');
   };
 
@@ -19,7 +35,11 @@ const ChatScreen = ({ navigation }) => {
     <View style={styles.container}>
       <FlatList
         data={messages}
+<<<<<<< HEAD
         keyExtractor={(item, index) => index.toString()}
+=======
+        keyExtractor={(item) => item.id.toString()}
+>>>>>>> 57ab70a5a7b974f2aa7f469cf1240ff224d13ec1
         renderItem={({ item }) => (
           <View style={styles.messageContainer}>
             <Text>{`${item.user}: ${item.text}`}</Text>
@@ -40,6 +60,7 @@ const ChatScreen = ({ navigation }) => {
     </View>
   );
 };
+<<<<<<< HEAD
 
 const Stack = createStackNavigator();
 
@@ -52,6 +73,8 @@ export default function App() {
     </NavigationContainer>
   );
 }
+=======
+>>>>>>> 57ab70a5a7b974f2aa7f469cf1240ff224d13ec1
 
 const styles = StyleSheet.create({
   container: {
@@ -85,3 +108,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default Chat;
