@@ -53,7 +53,7 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f3f5',
+    backgroundColor: 'white',
     display:'flex',
     alignItems:'center',
     paddingLeft:20,
