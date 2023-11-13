@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { Feather } from 'react-native-vector-icons'; // Importe o ícone correto
+import { Feather } from 'react-native-vector-icons'; 
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [textWidth, setTextWidth] = useState(200); // Valor inicial ajustado
+  const [textWidth, setTextWidth] = useState(200); 
 
   const handleSendMessage = () => {
     if (newMessage.trim() === '') return;
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     backgroundColor: '#640525',
     borderColor: '#640525',
-    paddingVertical: 10, // Ajustei o padding vertical
-    paddingHorizontal: 10, // Ajustei o padding horizontal
+    paddingVertical: 10,
+    paddingHorizontal: 10,
     borderWidth: 2,
     marginBottom: 10,
     marginTop: 10,
